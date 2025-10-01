@@ -614,6 +614,35 @@ section {
   box-shadow: 0 8px 20px rgba(98, 228, 215, 0.4);
 }
 
+.social-link {
+  position: relative;
+}
+
+.social-link::after {
+  content: attr(title);
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  border: 1px solid rgba(64, 224, 208, 0.3);
+}
+
+.social-link:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-5px);
+}
+
 /* Footer */
 .footer {
   background: #000000;

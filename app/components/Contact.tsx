@@ -68,10 +68,16 @@ const Contact: React.FC = () => {
   };
 
   const socialLinks = [
-    { icon: "fab fa-instagram", label: "Instagram" },
-    { icon: "fab fa-youtube", label: "YouTube" },
-    { icon: "fab fa-facebook", label: "Facebook" },
-    { icon: "fab fa-twitter", label: "Twitter" },
+    {
+      icon: "fab fa-instagram",
+      label: "Instagram",
+      url: "https://www.instagram.com/cucac_columbia?igsh=MWgyajJzNG9teGIzMw==",
+    },
+    {
+      icon: "fas fa-book-open",
+      label: "小红书",
+      url: "https://xhslink.com/m/4LyccjnaNRn",
+    },
   ];
 
   return (
@@ -127,9 +133,12 @@ const Contact: React.FC = () => {
             {socialLinks.map((link, index) => (
               <a
                 key={index}
-                href="#"
+                href={link.url}
                 className="social-link"
                 aria-label={link.label}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={link.label}
               >
                 <i className={link.icon}></i>
               </a>
