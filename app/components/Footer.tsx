@@ -1,5 +1,7 @@
+"use client";
+
 import React from "react";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useLanguage } from "../context/LanguageContext";
 
 const Footer: React.FC = () => {
   const { currentLanguage } = useLanguage();

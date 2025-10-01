@@ -1,10 +1,2 @@
-import { useContext } from "react";
-import { LanguageContext } from "@/page";
-
-export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error("useLanguage must be used within a LanguageProvider");
-  }
-  return context;
-};
+// app/hooks/useLanguage.ts
+export { useLanguage } from "../context/LanguageContext";

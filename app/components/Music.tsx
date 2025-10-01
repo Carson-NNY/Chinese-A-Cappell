@@ -1,5 +1,7 @@
+"use client";
+
 import React, { useEffect, useRef } from "react";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useLanguage } from "../context/LanguageContext";
 
 const Music: React.FC = () => {
   const { currentLanguage } = useLanguage();

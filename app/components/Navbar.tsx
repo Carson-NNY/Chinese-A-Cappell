@@ -1,5 +1,7 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useLanguage } from "../context/LanguageContext";
 
 const Navbar: React.FC = () => {
   const { currentLanguage, toggleLanguage } = useLanguage();

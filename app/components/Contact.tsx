@@ -1,6 +1,8 @@
+"use client";
+
 import React, { useState } from "react";
 import axios from "axios";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useLanguage } from "../context/LanguageContext";
 
 const Contact: React.FC = () => {
   const { currentLanguage } = useLanguage();
