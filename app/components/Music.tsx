@@ -54,33 +54,46 @@ const Music: React.FC = () => {
     return currentLanguage === "zh" ? zh : en;
   };
 
+  const handleItemClick = (youtubeUrl: string) => {
+    window.open(youtubeUrl, "_blank", "noopener,noreferrer");
+  };
+
   const musicData = [
     {
       image: "/spring-concert.jpg",
-      alt: "2024春季音乐会演出照片",
-      title: { zh: "2024春季音乐会", en: "Spring Concert 2024" },
+      alt: "2025 阿卡贝拉 · 青瓷之夜",
+      title: {
+        zh: "2025 · 阿卡贝拉 · 青瓷之夜",
+        en: "2025 A Cappella: Night of Qingci",
+      },
       description: {
         zh: "中西方经典歌曲的庆典",
         en: "A celebration of Chinese and international classics",
       },
+      youtubeUrl: "https://www.youtube.com/watch?v=oMqxfWn7qTg",
     },
     {
       image: "/cultural-festival.jpg",
       alt: "文化节演出照片",
-      title: { zh: "文化节", en: "Cultural Festival" },
+      title: {
+        zh: "2025 · 阿卡贝拉 · GCC 中秋",
+        en: "2025 GCC A Cappella Mid-Autumn",
+      },
       description: {
         zh: "重新演绎的中国传统旋律",
         en: "Traditional Chinese melodies reimagined",
       },
+      youtubeUrl: "https://www.youtube.com/watch?v=bZ8kppY0_mU",
     },
     {
       image: "/holiday-special.jpg",
-      alt: "节日特辑演出照片",
-      title: { zh: "节日特辑", en: "Holiday Special" },
+      alt: "2025 Night Market",
+      title: { zh: "2025 · Night Market", en: "2025 · Night Market" },
       description: {
         zh: "来自世界各地的节日歌曲",
         en: "Festive songs from around the world",
       },
+      youtubeUrl: "https://www.youtube.com/watch?v=-yRW6Kqg64w",
     },
   ];
 
@@ -98,7 +111,12 @@ const Music: React.FC = () => {
         </div>
         <div className="music-grid">
           {musicData.map((item, index) => (
-            <div key={index} className="music-item">
+            <div
+              key={index}
+              className="music-item"
+              onClick={() => handleItemClick(item.youtubeUrl)}
+              style={{ cursor: "pointer" }}
+            >
               <div className="music-image">
                 <img src={item.image} alt={item.alt} className="music-image" />
               </div>
