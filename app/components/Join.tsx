@@ -1,11 +1,17 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 
 const Join: React.FC = () => {
   const { currentLanguage } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const carouselImages = [
+    "/sliding_window1.jpg",
+    "/sliding_window2.jpg",
+  ];
 
   useEffect(() => {
     const observerOptions = {
@@ -41,6 +47,17 @@ const Join: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Carousel auto-rotation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        (prevIndex + 1) % carouselImages.length
+      );
+    }, 4000); // Change image every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [carouselImages.length]);
+
   const handleCTAClick = () => {
     const message = getText(
       "感谢您的兴趣！请发送邮件至 cca@columbia.edu 了解更多试镜信息。",
@@ -51,6 +68,18 @@ const Join: React.FC = () => {
 
   const getText = (zh: string, en: string) => {
     return currentLanguage === "zh" ? zh : en;
+  };
+
+  const goToPrevious = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === 0 ? carouselImages.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentImageIndex((prevIndex) => 
+      (prevIndex + 1) % carouselImages.length
+    );
   };
 
   const features = [
@@ -74,7 +103,7 @@ const Join: React.FC = () => {
         <div className="join-content">
           <div className="join-text">
             <h2 className="section-title">
-              {getText("加入我们的合唱团", "Join Our Choir")}
+              {getText("加入我们的合唱团", "Join Our Group")}
             </h2>
             <p className="join-description">
               {getText(
@@ -96,18 +125,47 @@ const Join: React.FC = () => {
             <div className="email-info">
               <p className="email-text">
                 {getText("联系邮箱：", "Contact: ")}
-                <a href="mailto:cca@columbia.edu" className="email-link">
-                  cca@columbia.edu
+                <a href="mailto:chineseacappella@columbia.edu" className="email-link">
+                  chineseacappella@columbia.edu
                 </a>
               </p>
             </div>
           </div>
-          <div className="join-image">
-            <img
-              src="/group-photo.jpg"
-              alt="加入哥伦比亚大学中文阿卡贝拉"
-              className="join-image"
-            />
+          <div className="join-image-carousel">
+            <button 
+              className="carousel-arrow carousel-arrow-left" 
+              onClick={goToPrevious}
+              aria-label="Previous image"
+            >
+              ‹
+            </button>
+            <div className="carousel-container">
+              {carouselImages.map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`${getText("加入哥伦比亚大学中文阿卡贝拉", "Join Columbia University Chinese A Cappella")} - ${index + 1}`}
+                  className={`carousel-image ${index === currentImageIndex ? 'active' : ''}`}
+                />
+              ))}
+            </div>
+            <button 
+              className="carousel-arrow carousel-arrow-right" 
+              onClick={goToNext}
+              aria-label="Next image"
+            >
+              ›
+            </button>
+            <div className="carousel-dots">
+              {carouselImages.map((_, index) => (
+                <button
+                  key={index}
+                  className={`carousel-dot ${index === currentImageIndex ? 'active' : ''}`}
+                  onClick={() => setCurrentImageIndex(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

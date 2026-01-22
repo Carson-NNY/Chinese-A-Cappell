@@ -30,7 +30,7 @@ const createSubscriptionEmail = (email: string) => {
             <p style="color: #7f8c8d; font-size: 12px;">
                 Columbia University Chinese A Cappella<br>
                 New York, NY 10027<br>
-                Email: cca@columbia.edu
+                Email: chineseacappella@columbia.edu
             </p>
         </div>
     `,

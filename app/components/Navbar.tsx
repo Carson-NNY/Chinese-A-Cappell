@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
               handleLinkClick("#about");
             }}
           >
-            {getText("历程", "Process")}
+            {getText("关于我们", "About Us")}
           </a>
           <a
             href="#music"
@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
               handleLinkClick("#music");
             }}
           >
-            {getText("参与", "Get Involved")}
+            {getText("演出回顾", "Past Performances")}
           </a>
           <a
             href="#join"
@@ -94,7 +94,7 @@ const Navbar: React.FC = () => {
               handleLinkClick("#join");
             }}
           >
-            {getText("创作者", "Creators")}
+            {getText("加入我们", "Join Us")}
           </a>
           <button className="language-toggle" onClick={toggleLanguage}>
             <span className="lang-text">{getText("EN", "中文")}</span>
