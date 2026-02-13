@@ -2,11 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
+import { usePathname, useRouter } from "next/navigation";
 
 const Navbar: React.FC = () => {
   const { currentLanguage, toggleLanguage } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [navBackground, setNavBackground] = useState("rgba(0, 0, 0, 0.9)");
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,6 +37,14 @@ const Navbar: React.FC = () => {
 
   const handleLinkClick = (href: string) => {
     setIsMenuOpen(false);
+    
+    // If we're not on the homepage, navigate to homepage first
+    if (pathname !== "/") {
+      router.push(`/${href}`);
+      return;
+    }
+    
+    // Otherwise, scroll to the section on the current page
     const target = document.querySelector(href);
     if (target) {
       target.scrollIntoView({
@@ -51,9 +62,16 @@ const Navbar: React.FC = () => {
     <nav className="navbar" style={{ background: navBackground }}>
       <div className="nav-container">
         <div className="nav-logo">
-          <span className="logo-text">
+          <a
+            href="/"
+            className="logo-text"
+            onClick={(e) => {
+              e.preventDefault();
+              router.push("/");
+            }}
+          >
             Columbia University Chinese A Cappella
-          </span>
+          </a>
         </div>
         <div className={`nav-menu ${isMenuOpen ? "active" : ""}`}>
           <a

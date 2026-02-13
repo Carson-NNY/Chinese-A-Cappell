@@ -21,6 +21,11 @@ export const metadata: Metadata = {
     "university",
     "新音乐",
   ],
+  icons: {
+    icon: [{ url: "/meta_icon.JPG", type: "image/jpeg" }],
+    shortcut: [{ url: "/meta_icon.JPG", type: "image/jpeg" }],
+    apple: [{ url: "/meta_icon.JPG", type: "image/jpeg" }],
+  },
 };
 
 export default function RootLayout({
@@ -35,8 +40,11 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         />
+        <link rel="icon" href="/meta_icon.JPG" type="image/jpeg" />
       </head>
-      <body className={playfairDisplay.className}>{children}</body>
+      <body className={playfairDisplay.className}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
