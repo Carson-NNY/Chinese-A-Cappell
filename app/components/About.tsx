@@ -46,7 +46,7 @@ const About: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 2300); // Change slide every 2.3 seconds
 
     return () => clearInterval(interval);
   }, [slides.length]);
