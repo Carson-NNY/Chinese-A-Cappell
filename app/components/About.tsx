@@ -17,10 +17,13 @@ const About: React.FC = () => {
     {
       description: getText(
         "我们是哥伦比亚大学首屈一指的中文阿卡贝拉团体，致力于通过音乐这一通用语言连接不同文化。我们多元化的团队汇聚了来自不同背景的学生，共同创作中文和国际歌曲的和谐编曲。",
-        "We are Columbia University's premier Chinese a cappella group, dedicated to bridging cultures through the universal language of music. Our diverse ensemble brings together students from various backgrounds to create harmonious arrangements of Chinese and international songs."
+        "We are Columbia University's premier Chinese a cappella group, dedicated to bridging cultures through the universal language of music. Our diverse ensemble brings together students from various backgrounds to create harmonious arrangements of Chinese and international songs.",
       ),
       image: "/group-photo.jpg",
-      alt: getText("哥伦比亚大学中文阿卡贝拉团体照片", "Columbia University Chinese A Cappella group photo"),
+      alt: getText(
+        "哥伦比亚大学中文阿卡贝拉团体照片",
+        "Columbia University Chinese A Cappella group photo",
+      ),
       stats: [
         { number: "15+", label: getText("成员", "Members") },
         { number: "50+", label: getText("歌曲", "Songs") },
@@ -31,10 +34,13 @@ const About: React.FC = () => {
     {
       description: getText(
         '在联合国这一象征全球对话的舞台上，哥大中文阿卡贝拉用纯净人声唱响新春祝福。在"郎酒新春之夜"，我们以原创编曲的《如愿》，将海外学子的思念与文化的共鸣，传递给来自世界各地的听众。',
-        'At the United Nations—an emblem of global dialogue—Columbia University Chinese A Cappella shared Lunar New Year wishes through the pure power of the human voice. At the Langjiu Lunar New Year Gala, our original a cappella rendition of As You Wish carried the emotions of students abroad and created a moment of cross-cultural resonance.'
+        "At the United Nations—an emblem of global dialogue—Columbia University Chinese A Cappella shared Chinese New Year wishes through the pure power of the human voice. At the Langjiu Chinese New Year Gala, our original a cappella rendition of As You Wish carried the emotions of students abroad and created a moment of cross-cultural resonance.",
       ),
       image: "/UN_cover.JPG",
-      alt: getText("联合国新春之夜演出", "Lunar New Year Gala performance at the United Nations"),
+      alt: getText(
+        "联合国新春之夜演出",
+        "Chinese New Year Gala performance at the United Nations",
+      ),
       stats: null,
       hasButton: true,
       buttonText: getText("了解更多", "Read More"),
