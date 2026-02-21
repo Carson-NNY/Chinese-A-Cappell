@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
   return (
     <div className="footer-bottom">
       <p>
-        &copy; 2025 Columbia University Chinese A Cappella.{" "}
+        &copy; 2026 Columbia University Chinese A Cappella.{" "}
         <span>{getText("保留所有权利。", "All rights reserved.")}</span>
       </p>
     </div>

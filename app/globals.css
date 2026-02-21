@@ -840,12 +840,15 @@ section {
   }
 
   .curved-text {
-    width: 400px;
-    height: 400px;
+    top: 85%;
+    left: 50%;
+    width: 650px;
+    height: 650px;
   }
 
   .curved-text text {
-    font-size: 1.1rem;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
   }
 
   .hero-main-image {
@@ -882,12 +885,15 @@ section {
   }
 
   .curved-text {
-    width: 600px;
-    height: 600px;
+    top: 78%;
+    left: 50%;
+    width: 750px;
+    height: 750px;
   }
 
   .curved-text text {
-    font-size: 1.4rem;
+    font-size: 2.1rem;
+    letter-spacing: 1.5px;
   }
 
   .hero-main-image {

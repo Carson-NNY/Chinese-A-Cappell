@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
                 <tspan>
                   {getText(
                     "哥伦比亚大学 · 中文阿卡贝拉",
-                    "Columbia University Chinese A Cappella"
+                    "Columbia University Chinese A Cappella",
                   )}
                 </tspan>
               </textPath>
@@ -87,7 +87,7 @@ const Hero: React.FC = () => {
                 startOffset="0%"
                 textAnchor="middle"
               >
-                <tspan>{getText("声音", "VOICES")}</tspan>
+                {/* <tspan>{getText("声音", "VOICES")}</tspan> */}
               </textPath>
             </text>
             {/* 右边垂直文字 */}
@@ -97,7 +97,7 @@ const Hero: React.FC = () => {
                 startOffset="0%"
                 textAnchor="middle"
               >
-                <tspan>{getText("和谐", "HARMONY")}</tspan>
+                {/* <tspan>{getText("和谐", "HARMONY")}</tspan> */}
               </textPath>
             </text>
           </svg>

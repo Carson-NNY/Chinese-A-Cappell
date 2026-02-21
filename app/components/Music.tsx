@@ -105,7 +105,7 @@ const Music: React.FC = () => {
           <p className="section-subtitle">
             {getText(
               "探索我们最新的演出和录音",
-              "Discover our latest performances and recordings"
+              "Discover our latest performances and recordings",
             )}
           </p>
         </div>
