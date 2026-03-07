@@ -75,16 +75,6 @@ const Navbar: React.FC = () => {
         </div>
         <div className={`nav-menu ${isMenuOpen ? "active" : ""}`}>
           <a
-            href="#home"
-            className="nav-link"
-            onClick={(e) => {
-              e.preventDefault();
-              handleLinkClick("#home");
-            }}
-          >
-            {getText("沉浸体验", "Immerse Yourself")}
-          </a>
-          <a
             href="#about"
             className="nav-link"
             onClick={(e) => {
@@ -95,11 +85,12 @@ const Navbar: React.FC = () => {
             {getText("关于我们", "About Us")}
           </a>
           <a
-            href="#music"
-            className="nav-link"
+            href="/past-performances"
+            className={`nav-link${pathname === "/past-performances" ? " active" : ""}`}
             onClick={(e) => {
               e.preventDefault();
-              handleLinkClick("#music");
+              setIsMenuOpen(false);
+              router.push("/past-performances");
             }}
           >
             {getText("演出回顾", "Past Performances")}
@@ -113,6 +104,17 @@ const Navbar: React.FC = () => {
             }}
           >
             {getText("加入我们", "Join Us")}
+          </a>
+          <a
+            href="/donate"
+            className={`nav-link nav-link--donate${pathname === "/donate" ? " active" : ""}`}
+            onClick={(e) => {
+              e.preventDefault();
+              setIsMenuOpen(false);
+              router.push("/donate");
+            }}
+          >
+            {getText("捐赠支持", "Donate")}
           </a>
           <button className="language-toggle" onClick={toggleLanguage}>
             <span className="lang-text">{getText("EN", "中文")}</span>
